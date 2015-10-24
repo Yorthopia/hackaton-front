@@ -1,43 +1,73 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+html {
+    position: relative;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+
 body {
-    line-height: 1;
+    padding-top: 120px;
+    ul {
+        list-style: none;
+    }
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .flash {
+        color: #FFF;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 35px 30px 34px 30px;
+        font-size: 1.5em;
+        opacity: 0;
+    }
+    #success {
+        background-color: #4AC920;
+    }
+    #warning {
+        background-color: #E6B822;
+    }
+    #error {
+        background-color: #C73232;
+    }
 }
-ol, ul {
-    list-style: none;
+
+.banner {
+    position: absolute;
+    padding: 15px 0 15px 30px;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: #248FB3;
+    a {
+        color: #FFF;
+        &:hover {
+            color: #4AC920;
+        }
+    }
 }
-blockquote, q {
-    quotes: none;
+
+.contain {
+    padding: 15px 15px 15px 15px;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+
+.log {
+    .signin {
+        float: right;
+        height: 368px;
+    }
+    .signup {
+        float: left;
+    }
+    .signin, .signup {
+        padding: 30px 30px 30px 30px;
+        display: inline-block;
+        border: 1px solid #248FB3;
+        .title {
+            text-align: center;
+            p {
+                font-size: 2em;
+            }
+        }    
+    }
 }
