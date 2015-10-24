@@ -20,7 +20,7 @@
         var div = document.querySelector('.flash');
         return function (message, type) {
             div.innerHTML = message;
-            div.style.display = "block";
+            div.style.opacity = 1;
             if (type === "danger") {
                 div.id = "danger";
             }
@@ -34,8 +34,10 @@
             }
 
             $timeout(function () {
-                div.style.display = "none";
+                div.style.opacity = 0;
+                div.style.backgroundColor = "transparent";
             }, 2000);
+
         }
     }]);
 
