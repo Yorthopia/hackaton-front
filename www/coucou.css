@@ -1,0 +1,86 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article {
+	width : 500px;
+	/*height: 400px;*/
+	background-color: white;
+	/*color: white;*/
+	padding: 50px;
+	/*text-decoration: none;*/
+}
+
+article a {
+	text-decoration: none;
+	color: #cfcfcf;
+	float: right;
+	font-family: sans-serif;
+	padding: 5px;
+	border: dotted 1px white;
+	margin-right: 10px;
+	-moz-transition-duration: 0.7s;
+	transition: all 1s;
+	/*margin-right: -10px;*/
+}
+
+article p {
+	width: 400px;
+	margin: 0 auto;
+	/*display: inline-block;*/
+	margin-bottom: 15px;
+	font-family: sans-serif;
+	text-align: center;
+	color: #020202;
+}
+
+article h2 {
+	width: 500px;
+	margin: 0 auto;
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+	color: #020202;
+	text-transform: uppercase;
+	/*display: inline-block;*/
+}
+
+article img {
+	/*width: 300px;*/
+	height: 325px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	/*display: inline-block;*/
+	float: left;
+	-moz-transition-duration: 0.7s;
+	transition: all 1s;
+}
+
+article a:hover {
+	color: black;
+	text-decoration: none;
+	border: 1px dotted #004337;
+	/*transition-delay: 0.8s;*/
+}
+
+article img:hover {
+	opacity: 0.7;
+	-moz-transition-duration:0.5s;
+}
