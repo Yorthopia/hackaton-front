@@ -36,7 +36,7 @@
 
     app.directive('form', [function () {
         return {
-            restrict: 'A',
+            restrict: 'A', //signifie attribut de balise
             controller: function ($scope) {
                 this.signin = function () {
                     $scope.si_username;

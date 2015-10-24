@@ -7,14 +7,14 @@
         .when(
             '/',
             {
-                templateUrl: 'views/modules/log/log.html',
+                templateUrl: 'views/log/log.html',
                 controller: 'checkRouteController'
             }
         )
         .when(
-            '/jobs',
+            '/home',
             {
-                templateUrl: 'views/modules/jobs/jobs.html',
+                templateUrl: 'views/home/home.html',
                 controller: 'checkRouteController'
             }
         )
