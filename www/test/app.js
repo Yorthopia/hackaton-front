@@ -27,4 +27,23 @@
         }
     }]);
 
+    app.controller('userController', [function () {
+        // execute au lancement de la page
+        this.display = function () {
+            //execute quand appele
+        };
+    }]);
+
+    app.directive('form', [function () {
+        return {
+            restrict: 'A',
+            controller: function ($scope) {
+                this.signin = function () {
+                    $scope.si_username;
+                }
+            },
+            controllerAs: "formCtrl"
+        };
+    }])
+
 }());
