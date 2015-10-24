@@ -1,6 +1,8 @@
 <div class="contain log">
     <div class="signup">
-        <p>Inscription</p>
+        <div class="title">
+            <p>Inscription</p>
+        </div>
         <form name="signup" signup ng-submit="signupCtrl.action()">
             <div class="form-group">
                 <label>Login</label>
@@ -17,8 +19,10 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
-    <div class="signin wrapper">
-        <p>Connexion</p>
+    <div class="signin">
+        <div class="title">
+            <p>Connexion</p>
+        </div>
         <form name="signin" signin ng-submit="signinCtrl.action()">
             <div class="form-group">
                 <label>Login</label>
@@ -28,6 +32,7 @@
                 <label>Password</label>
                 <input type="text" class="form-control" ng-model="si_password" placeholder="Password">
             </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
 </div>

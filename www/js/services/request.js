@@ -2,28 +2,26 @@
 
     var sRequest = angular.module('request', []);
 
-    sRequest.factory('postReq', ['$http', function ($http) {
-        return function (url, dataSend, callback) {
-            $http.post(url, dataSend)
-                .success(function (data) {
-                    callback(data);
-                })
-                .error(function (data) {
-                    callback(data);
-                });
-        };
+    sRequest.factory('postReq', [function () {
+        return function (url, dataSend, myCallback) {
+            jQuery.post(url, dataSend, function (data) {
+                myCallback(data);
+            })
+            .fail(function (data) {
+                myCallback(data);
+            });
+        }
     }]);
 
-    sRequest.factory('getReq', ['$http', function ($http) {
+    sRequest.factory('getReq', [function () {
         return function (url, dataSend, callback) {
-            $http.get(url, dataSend)
-                .success(function (data) {
-                    callback(data);
-                })
-                .error(function (data) {
-                    callback(data);
-                });
-        };
+            jQuery.post(url, dataSend, function (data) {
+                myCallback(data);
+            })
+            .fail(function (data) {
+                myCallback(data);
+            });
+        }
     }])
 
 }());

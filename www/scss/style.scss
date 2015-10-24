@@ -17,7 +17,8 @@ body {
         position: absolute;
         right: 0;
         top: 0;
-        padding: 20px 20px 0 0;
+        padding: 35px 30px 34px 30px;
+        font-size: 1.5em;
         opacity: 0;
     }
     #success {
@@ -48,4 +49,25 @@ body {
 
 .contain {
     padding: 15px 15px 15px 15px;
+}
+
+.log {
+    .signin {
+        float: right;
+        height: 368px;
+    }
+    .signup {
+        float: left;
+    }
+    .signin, .signup {
+        padding: 30px 30px 30px 30px;
+        display: inline-block;
+        border: 1px solid #248FB3;
+        .title {
+            text-align: center;
+            p {
+                font-size: 2em;
+            }
+        }    
+    }
 }

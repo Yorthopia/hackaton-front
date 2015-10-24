@@ -35,7 +35,7 @@
 
             $timeout(function () {
                 div.style.opacity = 0;
-                div.style.backgroundColor = "transparent";
+                div.id = "";
             }, 2000);
 
         }

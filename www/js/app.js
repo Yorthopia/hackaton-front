@@ -2,6 +2,16 @@
 
     var app = angular.module('app', ['ngRoute', 'request', 'utilities']);
 
+    /*app.config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.defaults.transformRequest = function (data) {
+            if (data === undefined) {
+                return data;
+            }
+
+            return data;
+        }
+    }])*/
+
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider
         .when(
@@ -21,15 +31,17 @@
         .otherwise({redirectTo: '/'});
     }]);
 
-    app.controller('checkRouteController', ['$location', function ($location, $scope) {
+    app.controller('checkRouteController', ['$location', '$scope', function ($location, $scope) {
         var user;
-        if (sessionStorage.getItem('user'))
-            user = JSON.parse(sessionStorage.getItem('user'));
 
         if ($location.path() === "/") {
             localStorage.clear();
         }
-        else if (!user.data.id) {
+
+        user = sessionStorage.getItem('user') != "undefined" ? JSON.parse(sessionStorage.getItem('user')) : false;
+
+
+        if (!user) {
             $scope.$on('$locationChangeStart', function (event) {
                 event.preventDefault();
             });
@@ -41,8 +53,9 @@
     app.directive('signup', [function () {
         return {
             restrict: 'A',
-            controller: function () {
-                this.action = function ($scope, postReq, flash, dataCheck) {
+            controller: function ($scope, postReq, flash, dataCheck) {
+                this.action = function () {
+                    console.log($scope.su_username, $scope.su_email, $scope.su_password);
                     var dataSend = {"username": null, "email": null, "password": null},
                         check = dataCheck([$scope.su_username, $scope.su_email, $scope.su_password]);
 
@@ -53,12 +66,12 @@
 
                     dataSend.username = $scope.su_username;
                     dataSend.email = $scope.su_email;
-                    dataSend.password = $.md5($scope.password);
+                    dataSend.password = $scope.password;
 
-                    $postReq('http://localhost/hackaton/API/signup.php', dataSend, function (data) {
+                    postReq('http://localhost/hackaton/API/signup.php', dataSend, function (data) {
                         console.log(data);
-                        if (data.error)
-                            flash(data.error_msg, "warning");
+                        if (data.erreur)
+                            flash(data.message, "warning");
                         else
                             flash('Inscription validé', "success");
                     });
@@ -85,9 +98,9 @@
                     dataSend.password = $scope.si_password;
 
                     postReq('http://localhost/hackaton/API/signin.php', dataSend, function (data) {
-                        console.log(data);
-                        if (data.error) {
-                            flash(data.error_msg, "warning");
+                        console.log(JSON.parse(data));
+                        if (JSON.parse(data).erreur) {
+                            flash(JSON.parse(data).message, "warning");
                             return;
                         }
 

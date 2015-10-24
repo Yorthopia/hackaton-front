@@ -12,7 +12,8 @@ body {
     position: absolute;
     right: 0;
     top: 0;
-    padding: 20px 20px 0 0;
+    padding: 35px 30px 34px 30px;
+    font-size: 1.5em;
     opacity: 0; }
   body #success {
     background-color: #4AC920; }
@@ -35,5 +36,19 @@ body {
 
 .contain {
   padding: 15px 15px 15px 15px; }
+
+.log .signin {
+  float: right;
+  height: 368px; }
+.log .signup {
+  float: left; }
+.log .signin, .log .signup {
+  padding: 30px 30px 30px 30px;
+  display: inline-block;
+  border: 1px solid #248FB3; }
+  .log .signin .title, .log .signup .title {
+    text-align: center; }
+    .log .signin .title p, .log .signup .title p {
+      font-size: 2em; }
 
 /*# sourceMappingURL=style.css.map */
