@@ -66,7 +66,7 @@
 
                     dataSend.username = $scope.su_username;
                     dataSend.email = $scope.su_email;
-                    dataSend.password = $scope.password;
+                    dataSend.password = $scope.su_password;
 
                     postReq('http://localhost/hackaton/API/signup.php', dataSend, function (data) {
                         console.log(data);
@@ -74,6 +74,7 @@
                             flash(data.message, "warning");
                         else
                             flash('Inscription validé', "success");
+                            $location.path( "/home" );
                     });
                 };
             },

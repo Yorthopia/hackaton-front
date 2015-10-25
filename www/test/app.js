@@ -12,6 +12,13 @@
             }
         )
         .when(
+          '/home',
+          {
+              templateUrl: 'view/modules/home/home.html',
+              controller: 'homeController.html'
+          }
+        )
+        .when(
             '/jobs',
             {
                 templateUrl: 'views/modules/jobs/jobs.html',
@@ -32,6 +39,10 @@
         this.display = function () {
             //execute quand appele
         };
+    }]);
+
+    app.controller('homeController', [function () {
+        
     }]);
 
     app.directive('form', [function () {
