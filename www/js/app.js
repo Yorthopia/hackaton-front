@@ -38,14 +38,14 @@
             localStorage.clear();
         }
 
-        user = sessionStorage.getItem('user') != "undefined" ? JSON.parse(sessionStorage.getItem('user')) : false;
+       /* user = sessionStorage.getItem('user') != "undefined" ? JSON.parse(sessionStorage.getItem('user')) : false;
 
 
         if (!user) {
             $scope.$on('$locationChangeStart', function (event) {
                 event.preventDefault();
             });
-        }
+        }*/
 
 
     }]);
@@ -66,12 +66,12 @@
 
                     dataSend.username = $scope.su_username;
                     dataSend.email = $scope.su_email;
-                    dataSend.password = $scope.password;
+                    dataSend.password = $scope.su_password;
 
                     postReq('http://localhost/hackaton/API/signup.php', dataSend, function (data) {
-                        console.log(data);
-                        if (data.erreur)
-                            flash(data.message, "warning");
+                        var response = JSON.parse(data);
+                        if (response.erreur)
+                            flash(response.message, "warning");
                         else
                             flash('Inscription validé', "success");
                     });
@@ -98,19 +98,29 @@
                     dataSend.password = $scope.si_password;
 
                     postReq('http://localhost/hackaton/API/signin.php', dataSend, function (data) {
-                        console.log(JSON.parse(data));
-                        if (JSON.parse(data).erreur) {
-                            flash(JSON.parse(data).message, "warning");
+                        var response = JSON.parse(data);
+                        console.log(response);
+                        if (response.erreur) {
+                            flash(resopnse.message, "warning");
                             return;
                         }
 
-                        sessionStorage.setItem('user', JSON.stringify(data.data));
-                        $location.path('/home');
+                        /*$location.path('/home');*/
+                        sessionStorage.setItem('user', JSON.stringify(response.data));
+                        console.log(sessionStorage);
+                        window.location = '/hackaton-front/www/#/home';
                     });
                 };
             },
             controllerAs: "signinCtrl"
         };
-    }])
+    }]);
+
+    app.controller('homeController', ['getReq', function (getReq) {
+        getReq('http://localhost/hackaton/API/mostviewd.php', {}, function (data) {
+            var response = JSON.parse(data);
+            console.log(response);
+        });
+    }]);
 
 }());
